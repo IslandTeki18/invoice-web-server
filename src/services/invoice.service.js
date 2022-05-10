@@ -90,18 +90,53 @@ const createInvoice = async (req, res, next) => {
 //@access   Private
 const updateInvoice = async (req, res, next) => {
   try {
-      const invoice = await Invoice.updateOne({_id: req.params.id},);
+      const invoice = await Invoice.findById(req.params.id);
       if (!invoice) {
           res.status(404);
           throw new Error("No Invoice Found.")
+      } else {
+        invoice.header = req.body.header || invoice.header;
+        invoice.company = req.body.company || invoice.company;
+        invoice.billTo = req.body.billTo || invoice.billTo;
+        invoice.invoiceNumber = req.body.invoiceNumber || invoice.invoiceNumber;
+        invoice.date = req.body.date || invoice.date;
+        invoice.terms = req.body.terms || invoice.terms;
+        invoice.items = req.body.items || invoice.items;
+        invoice.subTotal = req.body.subTotal || invoice.subTotal;
+        invoice.tax = req.body.tax || invoice.tax;
+        invoice.hasDiscount = req.body.hasDiscount || invoice.hasDiscount;
+        invoice.discount = req.body.discount || invoice.discount;
+        invoice.currency = req.body.currency || invoice.currency;
+        invoice.total = req.body.total || invoice.total;
+        invoice.isOutstanding = req.body.isOutstanding || invoice.isOutstanding;
+        invoice.hasPaid = req.body.hasPaid || invoice.hasPaid;
+        invoice.companyLogo = req.body.companyLogo || invoice.companyLogo;
       }
-  } catch (error) {}
+      await invoice.save()
+      res.status(200).send(invoice)
+  } catch (error) {
+      res.status(500);
+      next(error)
+  }
 };
 
 //@desc     Delete an Invoice
 //@route    DELETE /api/invoices/:id
 //@access   Private
-const deleteInvoice = async (req, res, next) => {};
+const deleteInvoice = async (req, res, next) => {
+    try {
+        const invoice = await Invoice.findById(req.params.id)
+        if (!invoice) {
+            res.status(404);
+            throw new Error("No Invoice Found.")
+        }
+        await invoice.remove();
+        res.status(200).send({msg: "Invoice Removed."})
+    } catch (error) {
+        res.status(500)
+        next(error)
+    }
+};
 
 export {
   getAllInvoices,
