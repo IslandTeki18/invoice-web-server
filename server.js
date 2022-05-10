@@ -6,6 +6,7 @@ import connectDatabase from "./src/config/database.js";
 import { notFound, errorHandler } from "./src/middleware/error.middleware.js";
 import invoiceApi from "./src/apis/invoice.api";
 import estimateApi from "./src/apis/estimate.api";
+import clientApi from "./src/apis/client.api";
 
 dotenv.config();
 connectDatabase();
@@ -16,6 +17,7 @@ app.use(cors());
 
 app.use("/api/invoices", invoiceApi);
 app.use("/api/estimates", estimateApi);
+app.use("/api/clients", clientApi);
 
 const __dirname = path.resolve();
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
