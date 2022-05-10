@@ -71,7 +71,7 @@ const createInvoice = async (req, res, next) => {
               percent: req.body.discount.percent,
               flatAmount: req.body.flatAmount
           },
-          currency: req.body,currency,
+          currency: req.body.currency,
           total: req.body.total,
           isOutstanding: req.body.isOutstanding || false,
           hasPaid: req.body.hasPaid || false,
