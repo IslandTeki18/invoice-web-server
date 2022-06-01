@@ -4,9 +4,9 @@ import dotenv from "dotenv";
 import cors from "cors";
 import connectDatabase from "./src/config/database.js";
 import { notFound, errorHandler } from "./src/middleware/error.middleware.js";
-import invoiceApi from "./src/apis/invoice.api";
-import estimateApi from "./src/apis/estimate.api";
-import clientApi from "./src/apis/client.api";
+import invoiceApi from "./src/apis/invoice.api.js";
+import estimateApi from "./src/apis/estimate.api.js";
+import clientApi from "./src/apis/client.api.js";
 
 dotenv.config();
 connectDatabase();

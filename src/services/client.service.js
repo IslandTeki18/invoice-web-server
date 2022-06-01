@@ -1,4 +1,4 @@
-import Client from "../models/client.model";
+import Client from "../models/client.model.js";
 
 //@desc     Get all Clients
 //@route    GET /api/clients/

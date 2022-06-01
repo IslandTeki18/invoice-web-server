@@ -7,8 +7,8 @@ import {
   createInvoice,
   updateInvoice,
   deleteInvoice,
-} from "../services/invoice.service";
-import { protect } from "../middleware/auth.middleware";
+} from "../services/invoice.service.js";
+import { protect } from "../middleware/auth.middleware.js";
 
 router.route("/").get(protect, getAllInvoices).post(protect, createInvoice);
 router

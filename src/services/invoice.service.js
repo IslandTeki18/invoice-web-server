@@ -1,4 +1,4 @@
-import Invoice from "../models/invoice.model";
+import Invoice from "../models/invoice.model.js";
 
 //@desc     Get all Invoices
 //@route    GET /api/invoices/

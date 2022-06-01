@@ -34,7 +34,7 @@ const invoiceSchema = new Schema(
       phone: String,
     },
     invoiceNumber: String,
-    date: Date(),
+    date: Date,
     terms: String,
     items: [itemSchema],
     subTotal: String,

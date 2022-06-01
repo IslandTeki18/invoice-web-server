@@ -7,8 +7,8 @@ import {
   createClient,
   deleteClient,
   updateClient,
-} from "../services/client.service";
-import { protect } from "../middleware/auth.middleware";
+} from "../services/client.service.js";
+import { protect } from "../middleware/auth.middleware.js";
 
 router.route("/").get(protect, getAllClients).post(protect, createClient);
 router

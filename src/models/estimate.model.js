@@ -34,7 +34,7 @@ const estimateSchema = new Schema(
       phone: String,
     },
     estimateNumber: String,
-    date: Date(),
+    date: Date,
     terms: String,
     items: [itemSchema],
     subTotal: String,

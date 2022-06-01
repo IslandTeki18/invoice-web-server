@@ -1,4 +1,4 @@
-import Estimate from "../models/estimate.model";
+import Estimate from "../models/estimate.model.js";
 
 //@desc     Get all Estimates
 //@route    GET /api/estimates/

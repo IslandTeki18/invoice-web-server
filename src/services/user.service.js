@@ -1,7 +1,8 @@
-import User from "../models/user.model"
+import User from "../models/user.model.js"
+import generateToken from "../utils/generateToken.js"
 
 //@desc     Get Auth User
-//@route    GET /api/users/login
+//@route    POST /api/users/login
 //@access   Public
 
 //@desc     Register User
